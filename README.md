@@ -15,3 +15,6 @@ This template is a WordPress theme , is yet Web site building framework .
 
 [na2ken](http://na2ken.com)
 
+![bootpress-media](http://bootpress.co/media/wp-content/themes/bootpress-media/screenshot.png)
+
+
