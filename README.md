@@ -4,7 +4,7 @@
 
 ### Description  
  
-This template is a WordPress theme , is yet Web site building framework .
+This is The WordPress theme. yet, WebSite building framework .
 
 ### Licence  
 
