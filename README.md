@@ -12,7 +12,7 @@ This template is a WordPress theme , is yet Web site building framework .
 
 ### Author  
 
-[na2ken](http://na2ken.com)
+[Kenji Natsumoto](http://na2ken.com)
 
 ### Demo
 
