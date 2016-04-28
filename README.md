@@ -4,7 +4,7 @@
 
 ### Description  
  
-This is The WordPress theme. yet, WebSite building framework .
+This is The WordPress theme. yet, WebSite building framework. Use the Bootstrap and custom file, it can reproduce the UI design in perfect condition. Time required is a approximately one hour.
 
 ### Licence  
 
