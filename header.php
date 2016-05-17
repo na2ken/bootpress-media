@@ -1,6 +1,6 @@
 <?php
 /**
- * BootPress single theme.
+ * BootPress header.php
  */
 
 ?>
@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="http://cdn.bootpress.co/assets/css/bootstrap.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="http://cdn.bootpress.co/assets/css/animate.css">
-    <link rel="stylesheet" href="http://cdn.bootpress.co/assets/css/bps.css">
+    <link rel="stylesheet" href="http://cdn.bootpress.co/assets/css/bp.css">
     <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/style.css">
 </head>
 <body class="page">
@@ -30,7 +30,7 @@
       </button>
       <div class="l-vi page-scroll">
             <a href="<?php bloginfo('url'); ?>" class="vi-a">
-                <img src="<?php bloginfo('template_url'); ?>/img/vi.svg" class="viUnit" height="auto" alt="fronteeer.com">
+                <img src="<?php bloginfo('template_url'); ?>/img/vi.svg" class="viUnit" height="auto" alt="<?php bloginfo('name'); ?>">
             </a>
       </div>
 
