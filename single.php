@@ -46,7 +46,7 @@ get_header(); ?>
         ?>
       </div>
 
-      <div class="col-full">
+      <div class="col-full verticalMargin-b-xs">
           <div class="wrap-col">
               <?php comments_template(); ?>
           </div><!-- ^ .wrap-col END-->

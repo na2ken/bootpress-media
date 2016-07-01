@@ -1,6 +1,6 @@
 <?php
 /*
-The comments page for Bones
+The comments area for BootPress-media
 */
 
 // don't load it if you can't comment
@@ -10,11 +10,9 @@ if ( post_password_required() ) {
 
 ?>
 
-<?php // You can start editing here. ?>
-
 <div id="comment_area">
 <?php if(have_comments()): ?>
-<h3 id="comments">Comments</h3>
+<h3 id="comments">コメント</h3>
 <ol class="commets-list">
 <?php wp_list_comments('avatar_size=48'); ?>
 </ol>
@@ -22,7 +20,7 @@ if ( post_password_required() ) {
 <?php $args = array(
     'title_reply' => 'Leave a Comment',
     'label_submit' => 'Submit Comment',
-    'comment_notes_before' => '<p class="commentNotesBefore">入力エリアすべてが必須項目です。メールアドレスが公開されることはありません。</p>',
+    'comment_notes_before' => '<p class="commentNotesBefore">入力エリアすべてが必須項目です。メールアドレスは公開いたしません。</p>',
     'comment_notes_after'  => '<p class="commentNotesAfter">内容をご確認の上、送信してください。</p>',
     'fields' => array(
             'author' => '<p class="comment-form-author">' .
