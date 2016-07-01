@@ -1,6 +1,7 @@
 <?php
 /**
- * BootPress header.php
+ * BootPress header.php update160701
+ * add link rel="alternate" & author
  */
 
 ?>
@@ -9,8 +10,10 @@
 <head>
     <meta charset="UTF-8">
     <?php my_description(); ?>
+    <meta name="author" content="<?php the_author_meta( 'display_name', 1 ); ?>" />
     <meta name="format-detection" content="telephone=no,address=no,email=no">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="alternate" hreflang="ja" href="<?php bloginfo('url'); ?>">
     <link rel="icon" href="<?php bloginfo('url'); ?>/favicon.ico">
     <link rel="apple-touch-icon" href="<?php bloginfo('template_url'); ?>/img/icon.png">
     <link rel="stylesheet" href="http://cdn.bootpress.co/assets/css/bootstrap.css">
