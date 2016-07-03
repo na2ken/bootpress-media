@@ -1,7 +1,7 @@
 <?php
 /* Template Name: page.php */
 get_header(); ?>
-<!-- pagete mplate -->
+<!-- page mplate -->
 <div class="l-cover verticalPadding-t-md verticalPadding-b-md">
 
     <div class="container">
@@ -20,6 +20,7 @@ get_header(); ?>
     <div class="container-fluid">
         <div class="row">
             <?php if(have_posts()): while(have_posts()): the_post(); ?>
+            <?php remove_filter ('the_content', 'wpautop'); ?>
             <?php the_content(); ?>
             <?php endwhile; endif; ?>
 	</div><!-- /.row -->

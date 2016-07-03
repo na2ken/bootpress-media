@@ -33,17 +33,18 @@ get_header(); ?>
             </figure>
 <?php endif; ?>
 </div>
-			<div class="verticalMargin-t-xs">
-			    <h2 class="h2 NotoSansJP-Thin"><?php the_title(); ?></h2>
-			</div>
-            <div class="postinfo">
-                <span class="postcat">
-                    <i class="fa fa-folder-open"></i><?php the_taxonomies( $args ); ?>
-                </span>
-            </div>  
-			<div class="verticalMargin-t-0">
-			    <?php the_content(); ?>
-			</div>
+<div class="verticalMargin-t-xs">
+    <h2 class="h2 NotoSansJP-Thin"><?php the_title(); ?></h2>
+</div>
+        <div class="postinfo">
+            <span class="postcat">
+                <i class="fa fa-folder-open"></i><?php the_taxonomies( $args ); ?>
+            </span>
+        </div>
+<div class="verticalMargin-t-0">
+    <?php remove_filter ('the_content', 'wpautop'); ?>
+    <?php the_content(); ?>
+</div>
 
                                 <div class="alert alert-warning alert-dismissible visible-xs">
                                     <button class="close" data-dismiss="alert" aria-hidden="true">&times;</button>

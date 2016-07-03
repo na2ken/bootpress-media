@@ -235,3 +235,7 @@ function search_filter($query) {
   return $query;
 }
 add_filter('pre_get_posts', 'search_filter');
+
+/**************************************************
+  記事で勝手につくHTMLタグをなくす　v1.1
+***************************************************/

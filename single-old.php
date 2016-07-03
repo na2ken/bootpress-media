@@ -1,12 +1,12 @@
 <?php
-/* Template Name: content-a.php */
+/* Template Name: single.php */
 get_header(); ?>
-<!-- ◆content-a template◆ -->
+<!-- ◆single template◆ -->
 <div class="l-cover verticalPadding-t-xs verticalPadding-b-sm">
     <div class="container">
         <div class="row">
             <div class="col-sm-12 wow fadeInUp" data-wow-duration="2.5s" data-wow-delay="1.0s">
-                <h1 class="h2 text-center NotoSansJP-Thin ">single article</h1>
+                <h1 class="h2 text-center NotoSansJP-Thin ">ARTICLES</h1>
             </div>
         </div><!-- /.row -->
     </div>
@@ -33,18 +33,24 @@ get_header(); ?>
             </figure>
 <?php endif; ?>
 </div>
-    <div class="verticalMargin-t-xs">
-        <h2 class="h2 NotoSansJP-Thin"><?php the_title(); ?></h2>
-    </div>
-            <div class="postinfo">
-                <span class="postcat">
-                    <i class="fa fa-folder-open"></i><?php the_taxonomies( $args ); ?>
-                </span>
-            </div>
-    <div class="verticalMargin-t-0">
-        <?php remove_filter ('the_content', 'wpautop'); ?>
-        <?php the_content(); ?>
-    </div>
+			<div class="verticalMargin-t-xs">
+			    <h2 class="h2 NotoSansJP-Thin"><?php the_title(); ?></h2>
+			    <span class="small"><time datetime="<?php echo get_the_date( 'Y-m-j' ) ?>"><?php the_time( get_option( 'date_format' ) ); ?></time><br>カテゴリー：<?php the_category( ',' ); ?></span>
+			</div>
+      <div class="verticalMargin-t-sm">
+        <?php
+        $content = get_the_content();
+        $content = preg_replace("/\n/","<br />",$content);
+        //ソース上で改行（\n）がある場合は、テキストでも改行を加える
+        echo $content;
+        ?>
+      </div>
+
+      <div class="col-full verticalMargin-b-xs">
+          <div class="wrap-col">
+              <?php comments_template(); ?>
+          </div><!-- ^ .wrap-col END-->
+      </div><!-- ^ .col-full END-->
 
                                 <div class="alert alert-warning alert-dismissible visible-xs">
                                     <button class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -61,7 +67,7 @@ get_header(); ?>
 			 */ ?>
 				<span id="next"><?php next_post_link( '%link','&laquo; %title' ); ?></span>
 			</div>
-			<div class="col-xs-6 text-right">
+			<div class="col-xs-6">
 				<span id="prev"><?php previous_post_link( '%link','%title &raquo;' ); ?></span>
 			<?php
 			// ループ終了
@@ -82,6 +88,7 @@ get_header(); ?>
             </div><!-- /.row -->
         </div><!-- /.container -->
 </article>
+
 
 <?php
 get_footer();

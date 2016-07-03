@@ -38,12 +38,7 @@ get_header(); ?>
 			    <span class="small"><time datetime="<?php echo get_the_date( 'Y-m-j' ) ?>"><?php the_time( get_option( 'date_format' ) ); ?></time><br>カテゴリー：<?php the_category( ',' ); ?></span>
 			</div>
       <div class="verticalMargin-t-sm">
-        <?php
-        $content = get_the_content();
-        $content = preg_replace("/\n/","<br />",$content);
-        //ソース上で改行（\n）がある場合は、テキストでも改行を加える
-        echo $content;
-        ?>
+                <?php the_content(); ?>
       </div>
 
       <div class="col-full verticalMargin-b-xs">
