@@ -1,8 +1,9 @@
 <?php
 /* Template Name: home.php */
+/* update 160707 */
 get_header(); ?>
-<!-- home template -->
-<article class="archiveArticle">
+<!-- home template update 160707 -->
+
 <div class="l-cover verticalPadding-t-md verticalPadding-b-md">
     <div class="container">
         <div class="row">
@@ -16,7 +17,7 @@ get_header(); ?>
 </div><!-- /.l-cover -->
 
 
-
+<article class="gryColorTone">
             <div class="container">
                 <div class="row verticalPadding-t-sm">
 
@@ -32,16 +33,19 @@ get_header(); ?>
                               <img src="<?php echo get_template_directory_uri(); ?>/img/img-noimage.png" class="img-responsive" alt="" />
                               <?php endif; ?>
                          </div><!--/.m-iCatch-->
-<h2 class="h2 NotoSansJP-Thin">
+<div class="horizontalMargin-l-xs horizontalMargin-r-xs">
+<h2 class="h2 NotoSansJP-Thin verticalMargin-t-xs verticalMargin-b-0">
  <a href="<?php the_permalink(); ?>">
  <?php the_title(); ?>
  </a></h2>
+    <div class="verticalMargin-t-0 verticalPadding-b-xs">
+        <span class="small">
+            <?php the_time('Y年m月d日') ?>
+        </span>
 
-<span class="small">
-<?php the_time('Y年m月d日') ?>
-</span>
-
-<span class="small">[ <?php the_category(', ') ?> ]</span>
+        <span class="small">[ <?php the_category(', ') ?> ]</span>
+    </div>
+</div><!-- /.horizontalMargin -->
                         </section>
                      </div><!-- /.col-sm-6 -->
 <?php endforeach; ?>
