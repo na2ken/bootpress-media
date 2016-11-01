@@ -1,5 +1,6 @@
 <?php
 /* Template Name: front-page.php */
+/* 161101 */
 get_header(); ?>
 <!-- front-page template -->
 <article class="contents">
