@@ -1,130 +1,84 @@
 <?php
-/* Template Name: archive-content-b.php */
+/* Template Name: archive-bootstrap.php */
+/* Template ID: archive-panel-3col template */
+/* v1.0 */
 get_header(); ?>
-<!-- ◆ archive-content-b template ◆ -->
-<article class="archiveArticle">
-<div class="l-cover verticalPadding-t-xs verticalPadding-b-sm">
+<!-- ◆ archive-panel-3col ◆ -->
+<div class="l-cover">
     <div class="container">
         <div class="row">
-            <div class="col-xs-12">
-
-                <h1 class="text-center">カテゴリー名</h1>
-
+            <div class="col-sm-12">
+                <h1 class="h2 text-center NotoSansJP-Thin verticalMargin-t-sm verticalMargin-b-sm"><?php echo esc_html(get_post_type_object(get_post_type())->label ); ?></h1>
             </div>
         </div><!-- /.row -->
     </div>
 </div><!-- /.l-cover -->
 
-
+<article class="gryColor">
 
             <div class="container">
-                <div class="row verticalPadding-t-sm">
+                <div class="row">
 
-                    <?php if(have_posts()): while(have_posts()):
-                    the_post(); ?>
-                    <div class="col-sm-6 col-md-4 verticalPadding-b-sm wow fadeInUp" data-wow-duration="2.5s" data-wow-delay="0s">
-                    <section>
+                  <?php if(have_posts()): while(have_posts()):
+                  the_post(); ?>
+                  <div class="col-xs-12 col-sm-6 col-md-4 verticalMargin-t-sm verticalMargin-b-sm wow fadeInUp" data-wow-duration="2.5s" data-wow-delay="0s">
 
+                          <section>
+                  <div class="">
+                  <?php
+                  // アイキャッチ画像を配置する
+                          if ( has_post_thumbnail() ) :
+                          the_post_thumbnail( 'medium img-responsive' );
+                          else : ?>
+                              <figure>
+                                  <img src="<?php echo get_template_directory_uri(); ?>/img/img-noimage.png" alt="<?php the_title(); ?>" class="img-responsive">
+                                  <!-- アイキャッチ画像がないときに表示させる仮画像  -->
+                              </figure>
+                  <?php endif; ?>
+                  </div>
 
+                  <div class="l-box horizontalPadding-l-xs horizontalPadding-r-xs">
+                  <?php if( is_single() ): ?>
 
+                  <?php else: ?>
+                     <h2 class="h2 NotoSansJP-Thin verticalMargin-t-xs verticalMargin-b-0"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 
-                    <div class="">
-                    <?php
-                    // アイキャッチ画像を配置する
-                            if ( has_post_thumbnail() ) :
-                            the_post_thumbnail( 'medium img-responsive' );
-                            else : ?>
-                                <figure>
-                                    <img src="<?php echo get_template_directory_uri(); ?>/img/img-noimage.png" alt="<?php the_title(); ?>" class="img-responsive">
-                                    <!-- アイキャッチ画像がないときに表示させる仮画像  -->
-                                </figure>
-                    <?php endif; ?>
-                    </div>
+                     <div class="excerpt gryColor">
+                         <span class="small">
+                             <i class="fa fa-folder-o horizontalPadding-r-xs horizontalPadding-l-xs text-subColor" aria-hidden="true"></i><?php the_taxonomies( $args ); ?>
+                         </span>
+                     </div>
 
-                    <?php if( is_single() ): ?>
+                  <?php endif; ?>
 
-                    <?php else: ?>
-                       <h2 class="h2 NotoSansJP-Thin"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-                       <div class="postinfo">
-                           <span class="postcat">
-                               <i class="fa fa-folder-open"></i><?php the_taxonomies( $args ); ?>
-                           </span>
-                       </div>  
-                    <?php endif; ?>
+                  <?php if( is_single() ): ?>
 
-                    <?php if( is_single() ): ?>
+                  <?php echo mb_substr(strip_tags($post-> post_content),0,100).'...'; ?>
 
-                    <?php echo mb_substr(strip_tags($post-> post_content),0,200).'...'; ?>
+                  <?php else: ?>
 
-                    <?php else: ?>
+                     <div class="verticalPadding-b-xs">
 
+                     <?php the_excerpt(); ?>
 
+                     </div>
 
+                  <?php endif; ?>
+                  </div><!-- LR Paddinf -->
 
-                       <div class="excerpt">
+                          </section>
 
+           </div><!-- col-12 & col-sm-6 -->
 
-
-
-
-                       <?php the_excerpt(); ?>
-                       <p class="more"><a href="<?php the_permalink(); ?>">続きを読む <i class="fa fa-chevron-right"></i></a></p><div class="clearfix"></div>
-                       </div>
-
-                    <?php endif; ?>
-
-
-                    <?php if( is_single() ): ?>
-                    <div class="pagenav">
-                       <span class="old">
-                       <?php previous_post_link(
-                       '%link',
-                       '<i class="fa fa-chevron-circle-left"></i> %title'
-                       ); ?>
-                       </span>
-
-                       <span class="new">
-                       <?php next_post_link(
-                       '%link',
-                       '%title <i class="fa fa-chevron-circle-right"></i>'
-                       ); ?>
-                       </span>
-                    </div>
-                    <?php endif; ?>
-
-
-                    <?php comments_template(); ?>
-                    <!-- /article -->
-                    </section>
-             </div><!-- col-12 -->
-
-                    <?php endwhile; endif; ?>
-
-
-                    <?php if( $wp_query->max_num_pages > 1 ): ?>
-                    <div class="col-xs-12 pagenav">
-                    <div class="col-xs-6 text-left">
-                       <span class="new">
-                       <?php next_posts_link( '<i class="fa fa-chevron-circle-left horizontalMargin-r-xs"></i>新しい記事' ); ?>
-                       </span>
-                    </div>
-                    <div class="col-xs-6 text-right">
-                       <span class="old">
-                       <?php previous_posts_link( '古い記事<i class="fa fa-chevron-circle-right horizontalMargin-l-xs"></i>' ); ?>
-                       </span>
-                    </div>
-
-                    </div>
-                    <?php endif; ?>
+                  <?php endwhile; endif; ?>
 
 
 
 
 
 
-        </div><!-- /.row -->
-    </div>
-
+      </div><!-- /.row -->
+  </div>
 </article>
 
 <?php

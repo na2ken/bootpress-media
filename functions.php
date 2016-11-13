@@ -22,7 +22,7 @@ add_filter('excerpt_mblength','my_length');
 
 // 本文と概要（抜粋）の省略記号を設定する
 function my_more($more) {
-	return '…';
+	return '・・・';
 }
 add_filter('excerpt_more', 'my_more');
 
@@ -126,22 +126,6 @@ if(!empty( $custom['description'][0])) {
 }
 
 /**************************************************
-  カスタムメニューを機能させる　v1.0
-***************************************************/
-// ナビゲーションメニューを登録する
-register_nav_menu( 'navigation', 'ナビゲーション' );
-
-add_theme_support( 'menus' );
-
-// 「メニュー」の「テーマの場所」を定義する
-register_nav_menu( 'header-navi', 'メインナビゲーション' );
-register_nav_menu( 'header-sub-navi', 'サブナビゲーション' );
-register_nav_menu( 'footer-navi', 'フッターナビゲーション' );
-register_nav_menu( 'footer-left-column', 'フッター左カラム' );
-register_nav_menu( 'footer-center-column', 'フッターセンターカラム' );
-register_nav_menu( 'footer-right-column', 'フッター右カラム' );
-
-/**************************************************
   カスタム投稿タイプを登録する　v2.0
 ***************************************************/
 /* 1つ目 */
@@ -215,6 +199,24 @@ function custom_register_taxonomy() {
     );
 /* 一番最後の閉じ括弧 */
 }
+
+
+/**************************************************
+  カスタムメニューを機能させる　v1.0
+***************************************************/
+// ナビゲーションメニューを登録する
+register_nav_menu( 'navigation', 'ナビゲーション' );
+
+add_theme_support( 'menus' );
+
+// 「メニュー」の「テーマの場所」を定義する
+register_nav_menu( 'header-navi', 'メインナビゲーション' );
+register_nav_menu( 'header-sub-navi', 'サブナビゲーション' );
+register_nav_menu( 'footer-navi', 'フッターナビゲーション' );
+register_nav_menu( 'footer-left-column', 'フッター左カラム' );
+register_nav_menu( 'footer-center-column', 'フッターセンターカラム' );
+register_nav_menu( 'footer-right-column', 'フッター右カラム' );
+
 
 /**************************************************
   BootPressのデフォルト機能を追加する　v1.1

@@ -1,0 +1,1329 @@
+@import "_variables";
+@charset "utf-8";
+/*******************************************************************
+*  ___ ___ ___
+* / __/ __/ __|
+* | (__\__ \__ \
+* \___|___/___/
+*
+* V2.0.3 "bp"
+* Date : 2016.11.7 15:09
+* MEMO : original http://cdn.bootpress.co/assets/css/bps.css + Alpha
+* Code licensed MIT.
+* For details, see http://en.wikipedia.org/wiki/MIT_License
+* 2016 Some Rights Reserved , Kenji Natsumoto
+* Thanks for Jonathan Snook(SMACSS) and many more...
+* StyleGuide: cdn.bootpress.co/bp-pattern-lib/index01.html
+* *****************************************************************/
+/*-----------------------------------------------------
+* INDEX v.1.1
+1.  BASE
+1-1.  General Settings (for HTMLtag Direct)
+1-2.  Web Font
+1-2-1.  GOOGLE NOTO FONTS
+1-3.  Clearfix
+1-4.  scrollbar
+
+2.  LAYOUT (and UI)
+2-1.  l-header
+2-2.  l-globalNav
+2-3.  l-toggle (humberger icon)
+2-4.  l-drawer (drawer plugin)
+2-5.  l-swipe (swipe and touch plugin)
+2-6.  l-cover
+2-7.  l-localNav
+2-8.  l-footer
+2-9.  l-footerNav
+2-10. misc
+2-10-1.  CSS Framework Customize
+
+3.  MODULE
+3-1.  viUnit
+3-2.  scrollUpIcon
+3-3.  scrollDownIcon
+3-4.  socialListUnit
+3-5.  coverUnit
+3-5-1.  coverUnit-head
+3-5-2.  coverUnit-body
+3-5-3.  coverUnit-foot
+3-6.  heroBotton
+3-7.  heroFigure
+3-8.  verticalSpace
+3-9.  horizontalSpace (ad Padding)
+3-10.  headingAccent
+3-11.  buttonUnit
+3-12.  formUnit
+3-13.  fluidModal
+3-14.  shadowEffect
+3-15.  copyrightUnit
+3-16.  dividerUnit
+3-17.  dividerUnit
+3-18.  tableUnit
+3-98.  misc
+3-99.  CSS Framework Customize
+
+4.  STATE
+4-1.  is-navbarNavUnit-active
+
+5.  THEME
+5-1.  generalColor
+5-2.  layoutColor
+5-3.  moduleColor
+5-3-1.navbarNavUnit
+5-3-2.socialListUnit
+5-3-3.utilityNavUnit
+5-4.  ColorPlan(Color Pallet)
+5-4-1.backgroundColor
+5-4-2.textColor
+5-5.  textSize
+5-6.  misc
+* ----------------------------------------------------- */
+/* =============================================================== *
+ *  1.  BASE
+ * =============================================================== */
+/*    1-1.  General Settings (for HTMLtag Direct)  160120再チェック
+ * ------------------------------------------------------ */
+html {
+    /*  overflow-y:scroll;はカーソルでスクロールが効かなくなるので入れない   */
+
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+body {
+    margin: 0;
+    overflow-x: hidden;
+    min-height: 100%;
+    font-family: sans-serif, 'Lucida Grande', 'Hiragino Kaku Gothic ProN', 'Meiryo';
+    /* 141122更新：Lucida Grandeを指定すればヒラギノ角ゴは自動で出るが */
+    /* Macでメイリオが入っている場合（つまりMS Officeをインストールしてる場合）、Lucida Grandeの代替えとしてのヒラギノ角ゴが効かず */
+    /* その次の指定であるメイリオが出てしまうので、ヒラギノ角ゴは必要　＝＞いまのところこれがベスト */
+
+    font-size: 0.9rem;
+    line-height: 1.5;
+    text-rendering: optimizeLegibility;
+    /* text-rendering: 文字をレンダリングしてくれるCSSのプロパティ　*/
+    /* optimizeLegibility = ユーザエージェントが速度、読みやすさ、幾何学的な正確さの適切なバランスをとる 読みやすさが最重要視される */
+    /* カーニングと合字 (リガチャ) をうまい具合に調整してくれる */
+    /* 'Noto Sans Japanese' 削除。スピードのため */
+}
+body .sans-serif {
+    font-family: 'Lucida Grande', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+strong {
+    font-family: 'Lucida Grande', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+    font-weight: bold;
+    font-weight: 900;
+}
+
+hr {
+    display: none;
+}
+ul,
+ol {
+    padding-left: 0;
+    list-style: none;
+    font-size: 1rem;
+}
+article,
+section {
+    margin-top: 0 !important;
+}
+@media screen and (min-width: 769px) {
+    body {
+        font-size: 1.2em;
+        line-height: 1.7;
+    }
+}
+
+/*    1-2.  Web Font
+ * ------------------------------------------------------ */
+/******** 1-2-1.  GOOGLE NOTO FONTS  ****/
+
+@font-face {
+    font-family: 'Noto Sans Japanese';
+    font-style: normal;
+    font-weight: 100;
+    src: url(//fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-Thin.woff2) format('woff2'), url(//fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-Thin.woff) format('woff'), url(//fonts.gstatic.com/ea/notosansjapanese/v6/NotoSansJP-Thin.otf) format('opentype');
+}
+.NotoSansJP-Thin {
+    font-family: 'Noto Sans Japanese';
+}
+*[class^="NotoSansJP-Thin"] {
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans';
+}
+.notoSansJP100 {
+    font-weight: 100;
+}
+.notoSansJP200 {
+    font-weight: 200;
+}
+.notoSansJP300 {
+    font-weight: 300;
+}
+.notoSansJP400 {
+    font-weight: 400;
+}
+.notoSansJP500 {
+    font-weight: 500;
+}
+.notoSansJP600 {
+    font-weight: 600;
+}
+.notoSansJP700 {
+    font-weight: 700;
+}
+.notoSansJP800 {
+    font-weight: 800;
+}
+.notoSansJP900 {
+    font-weight: 900;
+}
+/*    1-3.  Clearfix
+ * ------------------------------------------------------ */
+
+div:after,
+ul:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+/*    1-4.  scrollbar
+ * ------------------------------------------------------ */
+
+ /* =============================================================== *
+  *  2.  LAYOUT (and UI)
+  * =============================================================== */
+ /*    2-1.  l-header
+  * ------------------------------------------------------ */
+ /*    2-2.  l-globalNav
+  * ------------------------------------------------------ */
+ @media screen and (min-width: 1025px) {
+     .l-globalNav {
+         position: relative;
+         margin-top: 0;
+         left: 126px;
+         width: auto;
+     }
+     .l-globalNav-main {
+         position: absolute;
+         margin-left: 0;
+         bottom: 0;
+     }
+     .l-globalNav-sub {
+         position: fixed;
+         top: 0;
+         right: 0;
+         height: 78px;
+         z-index: 1;
+     }
+     .navbarNavUnit-sub {
+         margin-top: 14px;
+     }
+     .navbarNavUnit-sub a:hover {
+         padding-top: 0;
+     }
+ }
+ @media screen and (min-width:1025px){
+ .l-globalNav-sub a:link,
+ .l-globalNav-sub a:visited {
+    display: block;
+    top: 0;
+    padding: 14px 24px;
+ }
+ .l-globalNav-sub a:hover {
+    display: block;
+    padding: 14px 24px;
+  }
+ }
+
+ /*    2-3.  l-toggle (humberger icon)
+  * ------------------------------------------------------ */
+
+ .navbar-toggle {
+     position: relative;
+     float: right;
+     padding: 8px 10px 0 10px;
+     margin-top: 0;
+     margin-right: 0;
+     margin-bottom: 0;
+     background-color: transparent;
+     background-image: none;
+     border: 0 solid transparent;
+     border-radius: 0;
+ }
+ .navbar-toggle:focus {
+     outline: 0;
+ }
+ .navbar-toggle .icon-bar {
+     display: block;
+     width: 26px;
+     height: 2px;
+     border-radius: 0;
+ }
+ .navbar-toggle .icon-bar + .icon-bar {
+     margin-top: 4px; // bor-between-space
+ }
+ @media (min-width: 1025px) {
+     .navbar-toggle {
+         display: none;
+     }
+ }
+ /*    2-4.  l-drawer (drawer plugin)
+  * ------------------------------------------------------ */
+ /*    2-5.  swipe and touch
+  * ------------------------------------------------------ */
+ /*    2-6.  l-cover
+  * ------------------------------------------------------ */
+  .l-cover {
+    margin-top: 50px;
+    margin-bottom: -10px;
+    padding: 0;
+  }
+
+  @media screen and (min-width: 1025px) {
+    .l-cover {
+      margin-top: 58px;
+      margin-bottom: 0;
+      padding: 0;
+    }
+  }
+
+ /*    2-7.  l-localNav
+  * ------------------------------------------------------ */
+ /*
+  l-localNav-main
+  navListUnit
+  localNavUnit
+  */
+
+ .l-localNav-main {} .localNavUnit {}
+ /*    2-8.  l-footer
+  * ------------------------------------------------------ */
+
+ .l-footer {
+     position: relative;
+ }
+ .l-footerAbove {
+     padding: 24px 0;
+ }
+ .l-footeBelow {
+     padding: 24px 0;
+ }
+ /*    2-9.  l-footerNav
+  * ------------------------------------------------------ */
+
+ .m-sitemapHeading {
+     margin-top: 0;
+     padding-top: 0;
+ }
+ /*    2-10. misc
+  * ------------------------------------------------------ */
+ /******** 2-10-1.  CSS Framework Customize  ****/
+
+ .container-liquid {
+     max-width: 100%;
+     margin: 0;
+     margin-right: auto;
+     margin-left: auto;
+     padding-left: 0;
+     padding-right: 0;
+ }
+ .row-liquid {
+     margin: 0;
+ }
+ .no-gutter > [class*='col-'] {
+     padding-right: 0;
+     padding-left: 0;
+ }
+ .navbar {
+     border: 0 !important;
+ }
+ .btn-xl {
+     padding: 18px 24px;
+     font-size: 2em;
+     border-radius: 6px;
+ }
+
+ /* =============================================================== *
+  *  3.  MODULE
+  * =============================================================== */
+ /*    3-1.  viUnit
+  * ------------------------------------------------------ */
+  .viUnit {
+      display: block;
+      width: auto;
+      height: 42px;
+  }
+  @media screen and (min-width: 1025px) {
+  .viUnit {
+          width: auto;
+          height: 58px;
+      }
+  }
+  .viUnit-mono {
+      display: block;
+      width: auto;
+      height: 40px;
+  }
+  @media screen and (min-width: 1025px) {
+  .viUnit-mono {
+          width: auto;
+          height: 58px;
+      }
+}
+ /*    3-2.  scrollUpIcon (scroll-top and page-scroll)
+  * ------------------------------------------------------ */
+
+ .scroll-top {
+     z-index: 10;
+     position: absolute;
+     right: 0;
+     bottom: 0;
+     width: 80px;
+     height: 80px;
+ }
+ .scroll-top .btn {
+     width: 80px;
+     height: 80px;
+     border-radius: 0%;
+     font-size: 40px;
+     line-height: 52px;
+ }
+ .scroll-top .btn:focus {
+     outline: 0;
+ }
+
+ .scroll-top a:link,
+ .scroll-top a:visited {
+     font-weight: normal;
+ }
+
+ /*    3-3.  scrollDownIcon
+  * ------------------------------------------------------ */
+ /*    3-4.  socialListUnit
+  * ------------------------------------------------------ */
+
+ .m-socialIcon {
+     display: inline-block;
+     width: 50px;
+     height: 50px;
+     border-radius: 100%;
+     text-align: center;
+     line-height: 45px;
+ }
+ .m-socialIcon-outline {
+     margin-top: 0;
+     border: solid 2px;
+     font-size: 28px;
+     transition: all .3s ease-in-out;
+ }
+ /*    3-5.  coverUnit
+  * ------------------------------------------------------ */
+ /******** 3-5-1.  coverUnit-head   ****/
+ /******** 3-5-2. coverUnit-body    ****/
+ /******** 3-5-3. coverUnit-foot    ****/
+ /*    3-6.  heroBotton
+  * ------------------------------------------------------ */
+ /*    3-7.  heroFigure
+  * ------------------------------------------------------ */
+ /*    3-8.  verticalSpace
+  * ------------------------------------------------------ */
+
+ .verticalMargin-t-lg {
+     margin-top: 120px;
+ }
+ .verticalMargin-t-md {
+     margin-top: 60px;
+ }
+ .verticalMargin-t-sm {
+     margin-top: 30px;
+ }
+ .verticalMargin-t-xs {
+     margin-top: 10px;
+ }
+ .verticalMargin-t-0 {
+     margin-top: 0;
+ }
+ .verticalMargin-b-lg {
+     margin-bottom: 120px;
+ }
+ .verticalMargin-b-md {
+     margin-bottom: 60px;
+ }
+ .verticalMargin-b-sm {
+     margin-bottom: 30px;
+ }
+ .verticalMargin-b-xs {
+     margin-bottom: 10px;
+ }
+ .verticalMargin-b-0 {
+     margin-bottom: 0;
+ }
+ .verticalPadding-t-lg {
+     padding-top: 120px;
+ }
+ .verticalPadding-t-md {
+     padding-top: 60px;
+ }
+ .verticalPadding-t-sm {
+     padding-top: 30px;
+ }
+ .verticalPadding-t-xs {
+     padding-top: 10px;
+ }
+ .verticalPadding-t-0 {
+     padding-top: 0;
+ }
+ .verticalPadding-b-lg {
+     padding-bottom: 120px;
+ }
+ .verticalPadding-b-md {
+     padding-bottom: 60px;
+ }
+ .verticalPadding-b-sm {
+     padding-bottom: 30px;
+ }
+ .verticalPadding-b-xs {
+     padding-bottom: 10px;
+ }
+ .verticalPadding-b-0 {
+     padding-bottom: 0;
+ }
+ /*    3-9.  horizontalSpace
+  * ------------------------------------------------------ */
+
+ .horizontalMargin-l-lg {
+     margin-left: 120px;
+ }
+ .horizontalMargin-l-md {
+     margin-left: 60px;
+ }
+ .horizontalMargin-l-sm {
+     margin-left: 30px;
+ }
+ .horizontalMargin-l-xs {
+     margin-left: 10px;
+ }
+ .horizontalMargin-l-ss {
+     margin-left: 5px;
+ }
+ .horizontalMargin-l-0 {
+     margin-left: 0;
+ }
+ .horizontalMargin-r-lg {
+     margin-right: 120px;
+ }
+ .horizontalMargin-r-md {
+     margin-right: 60px;
+ }
+ .horizontalMargin-r-sm {
+     margin-right: 30px;
+ }
+ .horizontalMargin-r-xs {
+     margin-right: 10px;
+ }
+ .horizontalMargin-r-ss {
+     margin-right: 5px;
+ }
+ .horizontalMargin-r-0 {
+     margin-right: 0;
+ }
+
+ .horizontalPadding-l-lg {
+     margin-left: 120px;
+ }
+ .horizontalPadding-l-md {
+     margin-left: 60px;
+ }
+ .horizontalPadding-l-sm {
+     margin-left: 30px;
+ }
+ .horizontalPadding-l-xs {
+     margin-left: 10px;
+ }
+ .horizontalPadding-l-ss {
+     margin-left: 5px;
+ }
+ .horizontalMargin-l-0 {
+     margin-left: 0;
+ }
+ .horizontalPadding-r-lg {
+     margin-right: 120px;
+ }
+ .horizontalPadding-r-md {
+     margin-right: 60px;
+ }
+ .horizontalPadding-r-sm {
+     margin-right: 30px;
+ }
+ .horizontalPadding-r-xs {
+     margin-right: 10px;
+ }
+ .horizontalPadding-r-ss {
+     margin-right: 5px;
+ }
+ .horizontalPadding-r-0 {
+     margin-right: 0;
+ }
+
+
+ /*    3-10.  headingAccent
+  * ------------------------------------------------------ */
+ /*    3-11.  buttonUnit
+  * ------------------------------------------------------ */
+ /*    3-12.  formUnit
+  * ------------------------------------------------------ */
+  input,
+ textarea {
+   margin: 0;
+   background-color: #f6f6f6 !important;
+ }
+
+ input[type="text,email"] {
+   background-color: #f6f6f6 !important;
+   border: 0;
+   height: 40px; /* 高さ40px */
+   width: 200px;
+   padding: 0 10px;
+   position: absolute; /* 絶対配置 */
+   left: 0;
+   top: 0;
+ }
+
+  .floating-label-form-group {
+      position: relative;
+      margin-bottom: 0;
+      padding-bottom: .5em;
+      border-bottom: 0px solid #eee;
+  }
+
+  .floating-label-form-group input,
+  .floating-label-form-group textarea {
+      z-index: 1;
+      position: relative;
+      padding-right: 0;
+      padding-left: 0;
+      border: 0;
+      border-radius: 0;
+      font-size: 1.5em;
+      background: 0 0;
+      box-shadow: none!important;
+      resize: none;
+  }
+
+  .floating-label-form-group label {
+      color: $blck;
+      font-weight: normal;
+      font-size: 15px;
+  }
+
+  .floating-label-form-group::not(:first-child) {
+      padding-left: 14px;
+      border-left: 0px solid #eee;
+  }
+
+  .floating-label-form-group-with-value label {
+      top: 0;
+      opacity: 1;
+  }
+
+  .floating-label-form-group-with-focus label {
+      color: #a94442;  /* フォームの上に表示されるガイドの文字色 */
+  }
+
+ form .row:first-child .floating-label-form-group {
+      border-top: 0px solid #eee;
+  }
+
+ p#confirm-button {
+   text-align: center;
+
+ }
+
+ p#confirm-button input {
+   display: block;
+   width: 100%;
+   color: $wht;
+   background: #5cb85c!important;
+   border: #5cb85c!important;
+ }
+ p#confirm-button input:hover {
+   color: #dff0d8;
+   background: #449d44!important;
+   background: #449d44!important;
+ }
+ p#confirm-button input:active {
+   color: $wht;
+   background-color: #449d44;
+   border-color: #398439;
+ }
+ /*    3-13.  fluidModal
+  * ------------------------------------------------------ */
+ .fluidModal-item .fluidModal-link {
+     display: block;
+     position: relative;
+     margin: 0 auto;
+     max-width: 100%;
+ }
+ .fluidModal-item .fluidModal-link .caption {
+     position: absolute;
+     width: 100%;
+     height: 100%;
+     opacity: 0;
+     background: #00c853;
+     /* add */
+
+     -webkit-transition: all ease .5s;
+     -moz-transition: all ease .5s;
+     transition: all ease .5s;
+ }
+ .fluidModal-item .fluidModal-link .caption:hover {
+     opacity: 1;
+ }
+ .fluidModal-item .fluidModal-link .caption .caption-content {
+     position: absolute;
+     top: 10px;
+     width: 100%;
+     height: auto;
+     margin-top: 0;
+     text-align: left;
+     padding: 0 10px 0;
+     color: $wht;
+ }
+ .fluidModal-item .fluidModal-link .caption .caption-content i {
+     margin-top: -12px;
+ }
+ .fluidModal-item .fluidModal-link .caption .caption-content h3,
+ .fluidModal-item .fluidModal-link .caption .caption-content h4 {
+     margin: 0;
+ }
+ @media(min-width: 1025px) {
+     .fluidModal-item {
+         margin: 0;
+     }
+ }
+ .fluidModal-modal .modal-content {
+     padding: 100px 0;
+     min-height: 100%;
+     border: 0;
+     border-radius: 0;
+     text-align: center;
+     background-clip: border-box;
+     -webkit-box-shadow: none;
+     box-shadow: none;
+ }
+ .fluidModal-modal .modal-content h2 {
+     margin: 0;
+     font-size: 3em;
+ }
+ .fluidModal-modal .modal-content img {
+     margin-bottom: 30px;
+ }
+ .fluidModal-modal .modal-content .item-details {
+     margin: 30px 0;
+     text-align: left;
+ }
+ .fluidModal-modal .close-modal {
+     position: absolute;
+     top: 25px;
+     right: 25px;
+     width: 75px;
+     height: 75px;
+     background-color: transparent;
+     cursor: pointer;
+ }
+ .fluidModal-modal .close-modal:hover {
+     opacity: .3;
+ }
+ .fluidModal-modal .close-modal .lr {
+     z-index: 1051;
+     width: 1px;
+     height: 75px;
+     margin-left: 35px;
+     background-color: #2c3e50;
+     -webkit-transform: rotate(45deg);
+     -ms-transform: rotate(45deg);
+     transform: rotate(45deg);
+ }
+ .fluidModal-modal .close-modal .lr .rl {
+     z-index: 1052;
+     width: 1px;
+     height: 75px;
+     background-color: #2c3e50;
+     -webkit-transform: rotate(90deg);
+     -ms-transform: rotate(90deg);
+     transform: rotate(90deg);
+ }
+ .fluidModal-modal .modal-backdrop {
+     display: none;
+     opacity: 0;
+ }
+ /*  */
+
+ .fluidModal-modal .modal-content {
+     padding: 100px 0;
+     min-height: 100%;
+     border: 0;
+     border-radius: 0;
+     text-align: center;
+     background-clip: border-box;
+     -webkit-box-shadow: none;
+     box-shadow: none;
+ }
+ .fluidModal-modal .modal-content h2 {
+     margin: 0;
+     font-size: 3em;
+ }
+ .fluidModal-modal .modal-content img {
+     margin-bottom: 30px;
+ }
+ .fluidModal-modal .modal-content .item-details {
+     margin: 30px 0;
+     text-align: left;
+ }
+ .fluidModal-modal .close-modal {
+     position: absolute;
+     top: 25px;
+     right: 25px;
+     width: 75px;
+     height: 75px;
+     background-color: transparent;
+     cursor: pointer;
+ }
+ .fluidModal-modal .close-modal:hover {
+     opacity: .3;
+ }
+ .fluidModal-modal .close-modal .lr {
+     z-index: 1051;
+     width: 1px;
+     height: 75px;
+     margin-left: 35px;
+     background-color: #2c3e50;
+     -webkit-transform: rotate(45deg);
+     -ms-transform: rotate(45deg);
+     transform: rotate(45deg);
+ }
+ .fluidModal-modal .close-modal .lr .rl {
+     z-index: 1052;
+     width: 1px;
+     height: 75px;
+     background-color: #2c3e50;
+     -webkit-transform: rotate(90deg);
+     -ms-transform: rotate(90deg);
+     transform: rotate(90deg);
+ }
+ .fluidModal-modal .modal-backdrop {
+     display: none;
+     opacity: 0;
+ }
+ /*    3-14.  shadowEffect
+  * ------------------------------------------------------ */
+
+ .shadowEffect-0 {
+     box-shadow: none !important;
+ }
+ .shadowEffect-1,
+ nav,
+ .card-panel,
+ .card,
+ .toast,
+ .btn,
+ .btn-large,
+ .btn-floating,
+ .dropdown-content,
+ .collapsible,
+ .side-nav {
+     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+ }
+ .shadowEffect-1-half,
+ .btn:hover,
+ .btn-large:hover,
+ .btn-floating:hover {
+     box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+ }
+ .shadowEffect-2 {
+     box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+ }
+ .shadowEffect-3 {
+     box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+ }
+ .shadowEffect-4,
+ .modal {
+     box-shadow: 0 16px 28px 0 rgba(0, 0, 0, 0.22), 0 25px 55px 0 rgba(0, 0, 0, 0.21);
+ }
+ .shadowEffect-5 {
+     box-shadow: 0 27px 24px 0 rgba(0, 0, 0, 0.2), 0 40px 77px 0 rgba(0, 0, 0, 0.22);
+ }
+ /*    3-15. copyrightUnit
+  * ------------------------------------------------------ */
+
+ .copyrightUnit {
+     text-align: left;
+ }
+ @media screen and (min-width: 1025px) {
+     .copyrightUnit {
+         text-align: center;
+     }
+ }
+ /*    3-16. dividerUnit
+  * ------------------------------------------------------ */
+
+  hr.dividerUnit {
+    display: block;
+    height: 0;
+    -webkit-box-sizing: content-box;
+       -moz-box-sizing: content-box;
+            box-sizing: content-box;
+      padding-bottom: 0;
+      border-bottom: 1px #b7b7b7 solid;
+  }
+
+ ._dividerUnit:after {
+     content: "★";
+     margin: 8px 0;
+     width: 100%;
+     height: 1px;
+     background: #e5e5e5;
+ }
+
+
+
+ /*    3-17. imgCaptionUnit
+  * ------------------------------------------------------ */
+
+ .imgCaptionUnit {
+     margin: 0;
+     line-height: 1.3;
+ }
+ /*    3-18. tableUnit
+  * ------------------------------------------------------ */
+
+ .m-tableBorder-right {
+     border-right: 1px #ddd solid;
+ }
+ .m-tableBorder-right-none {
+     border-right: 0;
+ }
+ .m-tableBorder-bottom {
+     border-bottom: 2px #ddd solid;
+ }
+ .nowrap {
+     white-space: nowrap;
+ }
+ /*    3-98.  misc
+  * ------------------------------------------------------ */
+ .headeigDec-Underline {
+     padding-bottom: 5px;
+     border-bottom: 1px #b7b7b7 solid;
+ }
+
+ .listStyle-disc {
+     list-style-type: disc;
+ }
+ .listStyle-leading-zero {
+     list-style-type: decimal-leading-zero;
+ }
+ /*    3-99.  CSS Framework Customize
+  * ------------------------------------------------------ */
+  @media screen and (min-width: 760px) and ( max-width:1024px) {
+  .hamburgerMenu {
+    position: relative;
+     top: -5px!important;
+  }
+  }
+
+
+ .eyeCatch {
+     margin-left: -15px;
+     margin-right: -15px;
+ }
+
+ /* =============================================================== *
+   *  4.  STATE
+   * =============================================================== */
+ /*    4-1.  is-navbarNavUnit-active
+    * ------------------------------------------------------ */
+
+ .is-navbarNavUnit-active {
+     border-bottom: #ff5855 4px solid;
+ }
+ /* =============================================================== *
+    *  5.  THEME
+    * =============================================================== */
+ /*    5-1.  GeneralColor (textLinkColor)
+  * ------------------------------------------------------ */
+ p a:link,
+ p a:visited {
+     /* border-bottom:1px dotted; */
+     color: $keyColor;
+     font-weight: bold;
+     text-decoration: none;
+ }
+ p a:hover {
+     background: $wht;
+     color: lighten( $keyColor, 10% );
+ }
+ p a:active {
+     background: darken( $keyColor, 10% );
+     color: $wht;
+ }
+
+ h1 a:link,
+ h1 a:visited,
+ h2 a:link,
+ h2 a:visited,
+ h3 a:link,
+ h3 a:visited {
+     color: $accentColor;
+     font-weight: normal;
+     text-decoration: none;
+ }
+ h1 a:hover,
+ h2 a:hover,
+ h3 a:hover {
+ background: $trns;
+     color: lighten( $accentColor, 20% );
+ }
+
+ .is-a-hover {
+     background: $trns;
+     color: $wht!important;
+ }
+ .is-a-active {
+     background: $trns;
+     color: $wht!important;
+ }
+
+// 5-2.  layoutColor
+// ----------------------------------------
+body {
+    color: $blck;
+    background: $wht;
+}
+.l-footeBelow {
+    background: $wht;
+}
+.l-cover {
+    background: $keyColor;
+    color: $wht;
+}
+section {
+    background: $wht;
+}
+section:nth-of-type(2n+0) { //  奇数を指定する場合には2n+1
+    background: $gryColor;
+}
+_section div:nth-child(1) {
+  background: $trns;
+}
+section.archiveSection {
+    background: $gryColor;
+}
+article.archiveArticle {
+    background: $gryColor;
+}
+.l-footerAbove {
+    background: $wht;
+}
+.scroll-top .btn {
+     background: rgba($keyColor, .9);
+}
+.scroll-top a:link,
+.scroll-top a:visited {
+	  color: $wht;
+    font-weight: normal;
+}
+.scroll-top a:hover {
+	   color: $wht;
+     background: lighten( $keyColor, 20% );
+}
+// footer nav basic
+.navListUnit a:link,
+.navListUnit a:visited {
+    color: $accentColor;
+    font-weight: normal;
+}
+// sidebar nav basic
+.navbarNavUnit-local a:link,
+.navbarNavUnit-local a:visited {
+    color: $accentColor;
+    font-weight: normal;
+}
+// humberger icon
+.navbar-toggle {
+    background: $keyColor;
+}
+.navbar-default .navbar-toggle {
+  background: $keyColor;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+    background: rgba(114, 114, 114, .5); /* #727272 */
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background: rgba(114, 114, 114, 1);
+}
+
+/*    5-3.  moduleColor
+  * ------------------------------------------------------ */
+.strong {
+    font-weight: bold;
+    font-weight: 900;
+}
+.captionBox {
+  padding: 10px;
+  background: $keyColor;
+  color: $blck;
+}
+
+// 5-4.  ColorPlan(Color Pallet)
+// ----------------------------------------
+// 5-4-1.  backgroundColor
+.keyColor {
+    background: $keyColor;
+}
+.keyColor40dark {
+    background: darken( $keyColor, 30% );
+}
+.keyColor20dark {
+    background: darken( $keyColor, 20% );
+}
+.keyColor20pale {
+    background: lighten( $keyColor, 20% );
+}
+.keyColor40pale {
+    background: lighten( $keyColor, 25% );
+}
+.keyColor60pale {
+    background: lighten( $keyColor, 35% );
+}
+
+.subColor {
+    background: $subColor;
+}
+.subColor40dark {
+    background: darken( $subColor, 30% );
+}
+.subColor20dark {
+    background: darken( $subColor, 20% );
+}
+.subColor20pale {
+    background: lighten( $subColor, 20% );
+}
+.subColor40pale {
+    background: lighten( $subColor, 25% );
+}
+.subColor60pale {
+    background: lighten( $subColor, 35% );
+}
+
+.accentColor {
+    background: $accentColor;
+}
+.accentColor40dark {
+    background: darken( $accentColor, 30% );
+}
+.accentColor20dark {
+    background: darken( $accentColor, 20% );
+}
+.accentColor20pale {
+    background: lighten( $accentColor, 20% );
+}
+.accentColor40pale {
+    background: lighten( $accentColor, 25% );
+}
+.accentColor60pale {
+    background: lighten( $accentColor, 35% );
+}
+
+.gryColor {
+   background: $gryColor;
+}
+.gryColorTone {
+   background: darken( $gryColor, 10% );
+}
+.gryColorTone2nd {
+   background: darken( $gryColor, 20% );
+}
+.gryColorTone3rd{
+    background: darken( $gryColor, 30% );
+}
+.gryColorTone4th {
+   background: darken( $gryColor, 40% );
+}
+.gryColorTone5th {
+   background: darken( $gryColor, 50% );
+}
+.wht {
+   background: $wht;
+}
+.wht-text {
+  color: $wht;
+}
+.blck-text {
+  color: $blck;
+}
+.keyColor-text {
+  color: $keyColor;
+}
+.keyColor20dark-text {
+  color: darken( $keyColor, 20% );
+}
+.keyColor40dark-text {
+  color: darken( $keyColor, 30% );
+}
+.subColor-text {
+  color: $subColor;
+}
+.subColor20dark-text {
+  color: darken( $subColor, 20% );
+}
+.subColor40dark-text {
+  color: darken( $subColor, 30% );
+}
+.accentColor-text {
+  color: $accentColor;
+}
+.accentColor20dark-text {
+  color: darken( $accentColor, 20% );
+}
+.accentColor40dark-text {
+  color: darken( $accentColor, 30% );
+}
+.gryColor-text  {
+  color: $gryColor;
+}
+.gryColorTone-text  {
+  color: darken( $gryColor, 10% );
+}
+.gryColorTone2nd-text  {
+  color: darken( $gryColor, 20% );
+}
+.gryColorTone3rd-text {
+  color: darken( $gryColor, 30% );
+}
+.gryColorTone4th-text  {
+  color: darken( $gryColor, 40% );
+}
+.gryColorTone5th-text  {
+  color: darken( $gryColor, 50% );
+}
+/*    5-5.  textSize
+ * ------------------------------------------------------ */
+.textSize-xl {
+   margin: 0;
+   padding: 0;
+   font-size: 5rem;
+}
+.textSize-lg {
+    margin: 0;
+    padding: 0;
+    font-size: 3rem;
+}
+.textSize-md {
+    margin: 0;
+    padding: 0;
+    font-size: 2rem;
+}
+.textSize-sm {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    font-size: 1.5rem;
+}
+.textSize-xs {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    font-size: 1.1rem;
+}
+
+.textSize-xxs {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    font-size: 0.8rem;
+}
+
+.textSize-xxxs {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  font-size: 0.5rem;
+}
+
+@media screen and (min-width: 1025px) {
+.textSize-xxs {
+    font-size: 0.6rem;
+  }
+}
+
+
+.small {
+    font-size: 0.8rem;
+}
+
+
+
+/*    5-6.  misc
+ * ------------------------------------------------------ */
+
+  #comment_area {background:rgba(255,255,255,0.5);padding:25px;border-radius: 12px;margin-top:1em;line-height:1.4em;}
+  /*Comment List*/
+  #comment_area h3#comments {font-size:130%; margin:0 0 0.7em;}
+  #comment_area ol {list-style:none;}
+  #comment_area ol li {overflow: hidden;}
+  #comment_area ol li.depth-1{border:1px dotted $wht; margin-bottom:1em; padding:12px;}
+  #comment_area ol li ul.children {margin-left: 10%;} /*children 返信部分*/
+  #comment_area ol li ul.children li {border-top:1px dotted $wht; margin-top:1em; padding-top:12px;}
+  img.avatar {margin-right:8px;float:left;}
+  span.says{display:none;}
+  cite.fn {font-size:90%;}
+  div.comment-meta {font-size:80%;}
+  div.comment-meta:after {content:''; display:block; height:0; clear:both; visibility:hidden;}
+  .comment-body p {font-size:90%;color:#05c6fe;background:$wht;border-radius: 12px;padding:0.5em 1em;margin:0.8em 0 0.5em;}
+  div.reply { margin-bottom:0.2em}/*返信button*/
+  div.reply:after {content:''; display:block; height:0; clear:both; visibility:hidden;}
+  div.reply a {font-size:80%;line-height:1em;display:block;float:right;background:#05c6fe;padding:0.3em 1em;border-radius: 8px;}
+  div.reply a:hover {background:$wht; text-decoration:none;}
+  /*Comment Form*/
+  #respond {background:rgba(255,255,255,0.4);padding:1em;border-radius: 9px;}
+  #respond h3#reply-title {font-size:130%; margin:0 0 0.7em; color:#2d1497;}
+  #respond h3#reply-title small a {font-size:70%; margin-left:1em; text-decoration:underline;}/*コメントをキャンセルの文字*/
+  #respond p { margin-bottom:0.5em;}
+  #respond p.commentNotesBefore, #respond p.commentNotesAfter {font-size:80%;}
+  #respond p.form-submit {margin-bottom:0;}
+  /*form element*/
+  input#author, input#email, textarea#comment {
+      width:95%;
+      border:none;
+      border-radius:12px;
+      margin-top:0;
+      font-size:14px;
+      padding:7px 12px;
+      color:#05c6fe;}
+  textarea#comment {line-height:1.6em;}
+  input#submit {
+      cursor:pointer;
+      font-size:110%;
+      padding: 5px 1em;
+      margin:0;
+      border-style:none;
+      color: $blck;
+      background: #05c6fe;
+      border-radius: 18px;}
+  input#submit:hover {background:#2d1497;}

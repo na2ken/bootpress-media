@@ -1,37 +1,21 @@
 <?php
 /* Template Name: taxonomy-content-b-cat.php */
+/* Template ID: taxonomy-panel-1col-sidebar template */
+/* v1.0 */
 get_header(); ?>
-
-<!-- ★ taxonomy-content-b-cat template -->
-<div class="l-cover verticalPadding-t-xs verticalPadding-b-sm">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12 wow fadeInUp text-center" data-wow-duration="2.5s" data-wow-delay="0s">
-                <h1 class="h2 text-center NotoSansJP-Thin ">WordPressテーマ：
-<?php if( is_category('wordpress-cat') ): ?>
-<i class="fa fa-folder-open"></i>「<?php single_cat_title(); ?>」に関する記事
-					<?php endif; ?>
-					<?php if(is_month()): ?>
-<i class="fa fa-clock-o"></i><?php echo get_the_date( 'Y年n月' ); ?>に投稿した記事
-					<?php endif; ?>
-                    <?php if(is_day()): ?>
-<i class="fa fa-clock-o"></i><?php echo get_the_date( 'Y年n月n日' ); ?>に投稿した記事
-					<?php endif; ?>
-                </h1>
-            </div>
-        </div><!-- /.row -->
-    </div>
+<!-- taxonomy-content-b-cat template -->
+<div class="l-cover">
 </div><!-- /.l-cover -->
 
 
-<article class="gryColorTone">
+<article class="gryColor">
         <div class="container">
             <div class="row">
-                <div class="col-sm-8 gryColor wow fadeInUp verticalMargin-t-sm verticalMargin-b-sm" data-wow-duration="2.5s" data-wow-delay="1.0s">
+                <div class="col-sm-8 wht wow fadeInUp verticalMargin-t-sm verticalMargin-b-sm" data-wow-duration="2.5s" data-wow-delay="1.0s">
                     <?php if(have_posts()): while(have_posts()):
                     the_post(); ?>
 
-                    <section class="archiveSection">
+                    <section class="wht">
                     <!-- article <?php post_class(); ?> -->
 
 
@@ -48,35 +32,23 @@ get_header(); ?>
                                 </figure>
                     <?php endif; ?>
                     </div>
-
+                       <div class="wht verticalPadding-t-xs">
                     <?php if( is_single() ): ?>
 
                     <?php else: ?>
-                       <h2 class="h2"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+
+                       <h2 class="h2 verticalMargin-t-0"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
                     <?php endif; ?>
 
-                    <div class="postinfo">
-                       <time datetime="<?php echo get_the_date( 'Y-m-d' ) ?>">
-                       <i class="fa fa-clock-o"></i>
-                       <?php echo get_the_date(); ?>
-                       </time>
 
-                       <span class="postcat">
-                       <i class="fa fa-folder-open"></i>
-                       <?php the_category( ', ' ); ?>
-                       </span>
-
-                       <span class="postcom">
-                       <i class="fa fa-comment"></i>
-                       <a href="<?php comments_link(); ?>">
-                       <?php comments_number(
-                           'コメント',
-                           'コメント（1件）',
-                           'コメント（%件）'
-                       ); ?>
-                       </a>
-                       </span>
+                    <div class="excerpt gryColor">
+                        <span class="small">
+                            <i class="fa fa-clock-o horizontalPadding-r-xs horizontalPadding-l-xs text-subColor" aria-hidden="true"></i><time datetime="<?php echo get_the_date( 'Y-m-j' ) ?>"><?php the_time( get_option( 'date_format' ) ); ?>
+                            </time><i class="fa fa-commenting-o horizontalPadding-r-xs horizontalPadding-l-sm text-subColor" aria-hidden="true"></i><?php comments_number( 'なし', 'あり', '%件' ); ?>
+                        </span>
                     </div>
+
+
 
                     <?php if( is_single() ): ?>
 
@@ -121,6 +93,7 @@ get_header(); ?>
 
                     <?php comments_template(); ?>
                     <!-- /article -->
+                        </div>
                     </section>
 
                     <?php endwhile; endif; ?>
@@ -142,11 +115,23 @@ get_header(); ?>
 
 
              <div class="col-sm-4 verticalMargin-t-sm verticalMargin-b-sm">
-             <div class="col-xs-12 gryColor verticalPadding-t-sm verticalPadding-b-sm">
-             <aside class="" role="complementary">
-             <?php get_sidebar(); ?>
-             </aside>
-             </div>
+             <div class="col-xs-12 gryColor verticalPadding-t-0 verticalPadding-b-sm">
+               <h3 class="h2 verticalMargin-t-0 headeigDec-Underline">アクセスランキング</h3>
+<ul class="navListUnit">
+               <?php
+                 $args = array(
+                   'posts_per_page' => 7,
+                   'post_type' => get_post_type(),  //表示中の記事と同じ投稿タイプの記事を取得
+                 );
+                 $my_query = new WP_Query($args);
+               ?>
+               <?php if($my_query->have_posts()): while($my_query->have_posts()): $my_query->the_post(); ?>
+                 <li class="list-unstyled"><a href="<?php the_permalink(); ?>">
+                 <?php the_title(); ?></a></li>
+               <?php endwhile; endif; ?>
+               <?php wp_reset_postdata(); ?>
+</ul>
+             </div><!-- col-12 -->
              </div><!-- col-4 -->
 
         </div><!-- /.row -->

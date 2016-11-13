@@ -1,9 +1,9 @@
 <?php
 /**
- * BootPress header.php update160701
- * add link rel="alternate" & author
- */
-
+ * Template Name : header.php
+ * For new-theme
+ * Revision : 1.1　
+ **/
 ?>
 <!DOCTYPE html>
 <html lang="ja" id="pageTop">
@@ -16,20 +16,20 @@
     <link rel="alternate" hreflang="ja" href="<?php bloginfo('url'); ?>">
     <link rel="icon" href="<?php bloginfo('url'); ?>/favicon.ico">
     <link rel="apple-touch-icon" href="<?php bloginfo('template_url'); ?>/img/icon.png">
-    <link rel="stylesheet" href="http://cdn.bootpress.co/assets/css/bootstrap.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="http://cdn.bootpress.co/assets/css/animate.css">
-    <link rel="stylesheet" href="http://cdn.bootpress.co/assets/css/bp.css">
-    <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/style.css">
+    <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/bootstrap.css">
+    <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/animate.css">
+    <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/bp.css">
+    <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>">
 </head>
 <body class="page">
-<header id="header" class="navbar navbar-default navbar-fixed-top l-header shadowEffect-1-half" role="banner">
+<header id="header" class="navbar navbar-default navbar-fixed-top l-header" role="banner">
   <div class="container-liquid page-scroll">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
+        <span class="textSize-xxxs text-center hamburgerMenu">MENU</span>
       </button>
       <div class="l-vi page-scroll">
             <a href="<?php bloginfo('url'); ?>" class="vi-a">

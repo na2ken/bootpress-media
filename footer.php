@@ -1,7 +1,8 @@
 <?php
 /**
- * The template for displaying the footer.
- *
+ * Template / BootPress-media
+ * For displaying the footer.
+ * Update 161104 10:30
  * Contains the closing of the #content div and all content after.
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
@@ -33,13 +34,13 @@
                        <div class="col-md-4">
                            <h3 class="textColor-gryColorTone2nd">Search</h3>
 
-<div id="searchBox" class="col-xs-12">
+<div id="searchBox" class="col-sm-12">
 <div id="searchBox" class="row no-gutter">
-    <div class="col-xs-9">
+    <div class="col-sm-9">
 <form method="get" id="searchBox" action="<?php echo home_url('/'); ?>" class="">
             <input placeholder="キーワードを入力" class="form-control" type="text" name="s" id="searchInput" value="<?php the_search_query(); ?>" >
     </div>
-    <div class="col-xs-3"><input type="submit" value="検索" accesskey="f" class="btn btn-success"/>
+    <div class="col-sm-3"><input type="submit" value="検索" accesskey="f" class="btn btn-success"/>
 </form>
     </div>
 </div>
@@ -55,31 +56,44 @@
               <div class="container">
                       <div class="row">
                           <div class="col-lg-12">
-                              <p class="text-center textColor-gryColorTone2nd verticalPadding-t-0 verticalPadding-b-0">
-                                  <span class="small"><i class="fa fa-copyright horizontalMargin-r-xs"></i><?php bloginfo('name'); ?> Allrights Reserved.<span>
-                              </p>
+
+
+                            <div class="hidden-xs">
+                            <p class="text-center textColor-gryColorTone2nd verticalPadding-t-0 verticalPadding-b-0">
+                                <span class="small"><i class="fa fa-copyright horizontalMargin-r-xs"></i>
+                                  <?php bloginfo('name'); ?> Allrights Reserved.<br>
+                            </p>
+                            </div>
+                            <div class="hidden-sm hidden-md hidden-lg">
+                            <p class="text-left textColor-gryColorTone2nd verticalPadding-t-0 verticalPadding-b-0">
+                                <span class="small"><i class="fa fa-copyright horizontalMargin-r-xs"></i>
+                                  <?php bloginfo('name'); ?><br>Allrights Reserved.
+                            </p>
+                            </div>
+
                           </div>
                       </div><!-- /.row -->
               </div><!-- /.container -->
         </div><!-- /.lay-footeBelow -->
 </footer><!-- /.footer -->
 
-
-<!-- Bootstrap js -->
+<!-- Bootstrap & fontawesome js -->
+<script src="https://use.fontawesome.com/48d2973362.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-<!-- WOW -->
-<script src="http://cdn.bootpress.co/assets/js/wow.js"></script>
+<!-- other js -->
+<script src="<?php bloginfo('template_url'); ?>/js/wow.js"></script>
 
-<script src="http://cdn.bootpress.co/assets/js/jquery.bootstrap-autohidingnavbar.js"></script>
+<script src="<?php bloginfo('template_url'); ?>/js/jquery.bootstrap-autohidingnavbar.js"></script>
 
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+<script src="<?php bloginfo('template_url'); ?>/js/jquery.easing.min.js"></script>
 
-<script src="http://cdn.bootpress.co/assets/js/cbpAnimatedHeader.js"></script>
+<script src="<?php bloginfo('template_url'); ?>/js/cbpAnimatedHeader.js"></script>
 
-<script src="http://cdn.bootpress.co/assets/js/bps.js"></script>
+<script src="<?php bloginfo('template_url'); ?>/js/bp.js"></script>
 
+<script src="<?php bloginfo('template_url'); ?>/js/jcolumn.jquery.min.js"></script>
 <script>
   wow = new WOW(
     {
@@ -96,6 +110,9 @@
     section.className = 'section--purple wow fadeInDown';
     this.parentNode.insertBefore(section, this);
   };
+</script>
+<script>
+    $('.col-xs-12' ).jcolumn();
 </script>
 </body>
 </html>
