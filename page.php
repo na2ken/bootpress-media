@@ -1,19 +1,15 @@
 <?php
 /* Template Name: page.php */
 get_header(); ?>
-<!-- page template -->
-<div class="l-cover verticalPadding-t-md verticalPadding-b-md">
-
+<!-- page mplate -->
+<div class="l-cover">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-            <h1 class="text-center"><?php the_title(); ?></h1>
+                <h1 class="h2 text-center NotoSansJP-Thin verticalMargin-t-sm verticalMargin-b-sm"><?php the_title(); ?></h1>
             </div>
-
-
         </div><!-- /.row -->
     </div>
-
 </div><!-- /.l-cover -->
 
 <article class="archiveArticle">

@@ -4,8 +4,8 @@
 * / __/ __/ __|
 * | (__\__ \__ * \___|___/___/
 *
-* V2.0.3 "bp"
-* Date : 2016.11.7 15:09
+* V2.0.6 "bp"
+* Date : 2016.11.18 15:00
 * MEMO : original http://cdn.bootpress.co/assets/css/bps.css + Alpha
 * Code licensed MIT.
 * For details, see http://en.wikipedia.org/wiki/MIT_License
@@ -758,6 +758,8 @@ p#confirm-button input:active {
   opacity: 0;
   background: #00c853;
   /* add */
+  -webkit-transition: all ease .5s;
+  -moz-transition: all ease .5s;
   transition: all ease .5s;
 }
 
@@ -798,6 +800,7 @@ p#confirm-button input:active {
   border-radius: 0;
   text-align: center;
   background-clip: border-box;
+  -webkit-box-shadow: none;
   box-shadow: none;
 }
 
@@ -863,6 +866,7 @@ p#confirm-button input:active {
   border-radius: 0;
   text-align: center;
   background-clip: border-box;
+  -webkit-box-shadow: none;
   box-shadow: none;
 }
 
@@ -981,6 +985,8 @@ nav,
 hr.dividerUnit {
   display: block;
   height: 0;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
   box-sizing: content-box;
   padding-bottom: 0;
   border-bottom: 1px #b7b7b7 solid;
@@ -1432,8 +1438,8 @@ article.archiveArticle {
 
 /*    5-6.  misc
  * ------------------------------------------------------ */
-#comment_area {
-  background: rgba(255, 255, 255, 0.5);
+.commentArea {
+  background: #252525;
   padding: 25px;
   border-radius: 12px;
   margin-top: 1em;
@@ -1441,32 +1447,32 @@ article.archiveArticle {
 }
 
 /*Comment List*/
-#comment_area h3#comments {
+.commentArea h3.comments {
   font-size: 130%;
   margin: 0 0 0.7em;
 }
 
-#comment_area ol {
+.commentArea ol {
   list-style: none;
 }
 
-#comment_area ol li {
+.commentArea ol li {
   overflow: hidden;
 }
 
-#comment_area ol li.depth-1 {
+.commentArea ol li.depth-1 {
   border: 1px dotted #ffffff;
   margin-bottom: 1em;
   padding: 12px;
 }
 
-#comment_area ol li ul.children {
+.commentArea ol li ul.children {
   margin-left: 10%;
 }
 
 /*children 返信部分*/
-#comment_area ol li ul.children li {
-  border-top: 1px dotted #ffffff;
+.commentArea ol li ul.children li {
+  border-top: 1px dotted #666;
   margin-top: 1em;
   padding-top: 12px;
 }
@@ -1498,7 +1504,7 @@ div.comment-meta:after {
 
 .comment-body p {
   font-size: 90%;
-  color: #05c6fe;
+  color: #252525;
   background: #ffffff;
   border-radius: 12px;
   padding: 0.5em 1em;
@@ -1519,78 +1525,79 @@ div.reply:after {
 }
 
 div.reply a {
-  font-size: 80%;
+  font-size: 100%;
   line-height: 1em;
   display: block;
   float: right;
-  background: #05c6fe;
-  padding: 0.3em 1em;
-  border-radius: 8px;
+  background: #57e7dd;
+  padding: 7px 12px;
+  border-radius: 0;
 }
 
 div.reply a:hover {
-  background: #ffffff;
+  background: #2ae1d4;
   text-decoration: none;
 }
 
 /*Comment Form*/
-#respond {
-  background: rgba(255, 255, 255, 0.4);
+.respond {
+  background: #252525;
   padding: 1em;
-  border-radius: 9px;
+  border-radius: 0;
 }
 
-#respond h3#reply-title {
+.respond h3.reply-title {
   font-size: 130%;
   margin: 0 0 0.7em;
-  color: #2d1497;
+  color: #252525;
 }
 
-#respond h3#reply-title small a {
+.respond h3.reply-title small a {
   font-size: 70%;
   margin-left: 1em;
   text-decoration: underline;
 }
 
 /*コメントをキャンセルの文字*/
-#respond p {
+.respond p {
   margin-bottom: 0.5em;
 }
 
-#respond p.commentNotesBefore, #respond p.commentNotesAfter {
+.respond p.commentNotesBefore, .respond p.commentNotesAfter {
   font-size: 80%;
 }
 
-#respond p.form-submit {
+.respond p.formSubmit {
   margin-bottom: 0;
 }
 
 /*form element*/
-input#author, input#email, textarea#comment {
+input.author, input.email, textarea.comment {
   width: 95%;
   border: none;
-  border-radius: 12px;
+  border-radius: 0;
   margin-top: 0;
   font-size: 14px;
   padding: 7px 12px;
-  color: #05c6fe;
+  color: #252525;
 }
 
-textarea#comment {
+/*form内テキストカラー*/
+textarea.comment {
   line-height: 1.6em;
 }
 
-input#submit {
+input.submit {
   cursor: pointer;
   font-size: 110%;
-  padding: 5px 1em;
-  margin: 0;
+  padding: 7px 12px;
+  margin-left: 14px;
   border-style: none;
   color: #252525;
-  background: #05c6fe;
-  border-radius: 18px;
+  background: #57e7dd !important;
+  border-radius: 0;
 }
 
-input#submit:hover {
-  background: #2d1497;
+input.submit:hover {
+  background: #2ae1d4 !important;
 }

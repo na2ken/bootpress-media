@@ -1,9 +1,9 @@
 <?php
 /* Template Name: home.php */
-/* for na2ken.com */
+/* Last update 1611015 */
 get_header(); ?>
 <!-- home template -->
-<div class="l-cover gryColor">
+<div class="l-cover gryColorTone">
 
     <div class="row no-gutter wow fadeInUp verticalMargin-t-0" data-wow-duration="2.5s" data-wow-delay=".0s">
       <?php
@@ -29,10 +29,13 @@ else : ?>
         <div class="col-sm-6">
             <div class="horizontalMargin-l-sm horizontalMargin-r-sm text-left">
                 <p class="textSize-xs"><span class="label label-primary">NEW</span></p>
-                <h1 class="h1 NotoSansJP-Thin"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
-                <p class="blck-text"><?php echo mb_substr(strip_tags($post-> post_content),0,70).'...'; ?></p>
-                <p class="small blck-text"><i class="fa fa-clock-o horizontalPadding-r-xs horizontalPadding-l-0 text-subColor" aria-hidden="true"></i><time datetime="<?php echo get_the_date( 'Y-m-j' ) ?>"><?php the_time( get_option( 'date_format' ) ); ?>
-                </time></p>
+                <h1 class="h1 NotoSansJP-Thin verticalMargin-b-0"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+                <p class="blck-text verticalMargin-t-0 verticalPadding-t-0"><?php echo mb_substr(strip_tags($post-> post_content),0,70).'・・・'; ?></p>
+                <p class="small keyColor40dark-text">
+                    <i class="fa fa-clock-o horizontalPadding-r-xs text-subColor" aria-hidden="true"></i><time datetime="<?php echo get_the_date( 'Y-m-j' ) ?>"><?php the_time( get_option( 'date_format' ) ); ?>
+                    </time><i class="fa fa-commenting-o horizontalPadding-r-xs horizontalPadding-l-sm text-subColor" aria-hidden="true"></i><?php comments_number( 'なし', 'あり', '%件' ); ?>
+                </p>
+
             </div><!-- /.horizontalMargin -->
         </div>
 <?php endforeach; ?>
@@ -41,19 +44,17 @@ else : ?>
 </div><!-- /.l-cover -->
 
 
-<article class="wht">
-  <div class="container-fluid wht">
+<article>
+  <div class="container-fluid gryColor">
       <div class="row verticalPadding-t-sm">
   <div class="hidden-xs col-lg-3 col-sm-4 verticalPadding-b-sm wow fadeInUp" data-wow-duration="2.5s" data-wow-delay="0.5s">
       <section>
-
 
       <?php if ( is_active_sidebar( 'sidebar-1' ) ) : ?>
           <div id="secondary" class="widget-area" role="complementary">
               <?php dynamic_sidebar( 'sidebar-1' ); ?>
           </div><!-- #secondary -->
       <?php endif; ?>
-
 
     </section>
 
@@ -62,16 +63,16 @@ else : ?>
 
   <div class="col-lg-3 col-sm-4 verticalPadding-b-sm wow fadeInUp" data-wow-duration="2.5s" data-wow-delay="1.0s">
       <section class="wht">
-        <div class="verticalPadding-t-xs verticalPadding-b-xs verticalMargin-b-xs keyColor">
-            <h2 class="horizontalMargin-l-xs horizontalMargin-r-xs textSize-xs NotoSansJP-Thin textColor-wht">記事カテゴリA</h2>
+        <div class="verticalPadding-t-xs verticalPadding-b-xs verticalMargin-b-0 keyColor">
+            <h2 class="horizontalMargin-l-xs horizontalMargin-r-xs textSize-xs NotoSansJP-Thin textColor-wht">ミニカテゴリー</h2>
         </div>
-        <?php $posts = get_posts('numberposts=5&offset=0&category=16'); foreach ($posts as $post): ?>
+        <?php $posts = get_posts('numberposts=10&offset=0&category=2'); foreach ($posts as $post): ?>
+<div class="col-xs-12 wht">
+<div class="l-box verticalPadding-b-sm horizontalPadding-l-xs horizontalPadding-r-xs">
+                    <h3 class="h2 NotoSansJP-Thin verticalMargin-t-xs verticalMargin-b-0 verticalPadding-b-0"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 
-                    <h3 class="h2 NotoSansJP-Thin verticalMargin-t-0 verticalMargin-b-0 verticalPadding-b-0"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-
-                    <p class="verticalMargin-t-0 verticalPadding-t-0 verticalMargin-b-0 verticalPadding-b-0"><?php echo mb_substr(strip_tags($post-> post_content),0,100).'...'; ?></p>
-
-                    <div class="excerpt gryColor">
+                    <p class="small verticalMargin-t-xs verticalPadding-t-0 verticalMargin-b-0 verticalPadding-b-0"><?php echo mb_substr(strip_tags($post-> post_content),0,100).'...'; ?></p>
+                    <div class="excerpt verticalMargin-t-xs keyColor40pale">
                         <span class="small">
                             <i class="fa fa-clock-o horizontalPadding-r-xs horizontalPadding-l-xs text-subColor" aria-hidden="true"></i><time datetime="<?php echo get_the_date( 'Y-m-j' ) ?>"><?php the_time( get_option( 'date_format' ) ); ?>
                             </time><i class="fa fa-commenting-o horizontalPadding-r-xs horizontalPadding-l-sm text-subColor" aria-hidden="true"></i><?php comments_number( 'なし', 'あり', '%件' ); ?>
@@ -81,7 +82,9 @@ else : ?>
                         </span>
                     </div>
 
-        <hr class="dividerUnit ">
+</div><!-- /.l-box -->
+</div><!-- /.xs-12 -->
+
         <?php endforeach; ?>
 
       </section>
@@ -93,17 +96,18 @@ else : ?>
 
 
 
-  <div class="col-lg-3 col-sm-4 verticalPadding-b-sm wow fadeInUp" data-wow-duration="2.5s" data-wow-delay="1.5s">
+  <div class="col-lg-3 col-sm-4 verticalPadding-b-sm wow fadeInUp" data-wow-duration="2.5s" data-wow-delay="1.0s">
       <section class="wht">
-        <div class="verticalPadding-t-xs verticalPadding-b-xs verticalMargin-b-xs keyColor20pale">
-            <h2 class="horizontalMargin-l-xs horizontalMargin-r-xs textSize-xs NotoSansJP-Thin textColor-wht">記事カテゴリB</h2>
+        <div class="verticalPadding-t-xs verticalPadding-b-xs verticalMargin-b-0 keyColor">
+            <h2 class="horizontalMargin-l-xs horizontalMargin-r-xs textSize-xs NotoSansJP-Thin textColor-wht">新規カテゴリー</h2>
         </div>
-        <?php $posts = get_posts('numberposts=5&offset=0&category=8'); foreach ($posts as $post): ?>
+        <?php $posts = get_posts('numberposts=10&offset=0&category=3'); foreach ($posts as $post): ?>
+<div class="col-xs-12 wht">
+  <div class="l-box verticalPadding-b-sm horizontalPadding-l-xs horizontalPadding-r-xs">
+                    <h3 class="h2 NotoSansJP-Thin verticalMargin-t-xs verticalMargin-b-0 verticalPadding-b-0"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 
-                    <h3 class="h2 NotoSansJP-Thin verticalMargin-t-0 verticalMargin-b-0 verticalPadding-b-0"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-
-                    <p class="verticalMargin-t-0 verticalPadding-t-0 verticalMargin-b-0 verticalPadding-b-0"><?php echo mb_substr(strip_tags($post-> post_content),0,100).'...'; ?></p>
-                    <div class="excerpt gryColor">
+                    <p class="small verticalMargin-t-xs verticalPadding-t-0 verticalMargin-b-0 verticalPadding-b-0"><?php echo mb_substr(strip_tags($post-> post_content),0,100).'...'; ?></p>
+                    <div class="excerpt verticalMargin-t-xs keyColor40pale">
                         <span class="small">
                             <i class="fa fa-clock-o horizontalPadding-r-xs horizontalPadding-l-xs text-subColor" aria-hidden="true"></i><time datetime="<?php echo get_the_date( 'Y-m-j' ) ?>"><?php the_time( get_option( 'date_format' ) ); ?>
                             </time><i class="fa fa-commenting-o horizontalPadding-r-xs horizontalPadding-l-sm text-subColor" aria-hidden="true"></i><?php comments_number( 'なし', 'あり', '%件' ); ?>
@@ -112,7 +116,9 @@ else : ?>
                             <i class="fa fa-folder-o horizontalPadding-r-xs horizontalPadding-l-xs text-subColor" aria-hidden="true"></i><?php the_category( ',' ); ?>
                         </span>
                     </div>
-        <hr class="dividerUnit ">
+
+  </div><!-- /.l-box -->
+</div><!-- /.xs-12 -->
         <?php endforeach; ?>
 
       </section>
@@ -122,17 +128,19 @@ else : ?>
   </div><!-- /.col-lg-3 -->
 
 
-  <div class="col-lg-3 col-sm-4 verticalPadding-b-sm wow fadeInUp" data-wow-duration="2.5s" data-wow-delay="2.0s">
+
+  <div class="col-lg-3 col-sm-4 verticalPadding-b-sm wow fadeInUp" data-wow-duration="2.5s" data-wow-delay="1.0s">
       <section class="wht">
-        <div class="verticalPadding-t-xs verticalPadding-b-xs verticalMargin-b-xs keyColor40pale">
-            <h2 class="horizontalMargin-l-xs horizontalMargin-r-xs textSize-xs NotoSansJP-Thin textColor-wht">記事カテゴリC</h2>
+        <div class="verticalPadding-t-xs verticalPadding-b-xs verticalMargin-b-0 keyColor">
+            <h2 class="horizontalMargin-l-xs horizontalMargin-r-xs textSize-xs NotoSansJP-Thin textColor-wht">その他</h2>
         </div>
-        <?php $posts = get_posts('numberposts=5&offset=0&category=1'); foreach ($posts as $post): ?>
+        <?php $posts = get_posts('numberposts=10&offset=0&category=1'); foreach ($posts as $post): ?>
+<div class="col-xs-12 wht">
+  <div class="l-box verticalPadding-b-sm horizontalPadding-l-xs horizontalPadding-r-xs">
+                    <h3 class="h2 NotoSansJP-Thin verticalMargin-t-xs verticalMargin-b-0 verticalPadding-b-0"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 
-                    <h3 class="h2 NotoSansJP-Thin verticalMargin-t-0 verticalMargin-b-0 verticalPadding-b-0"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-
-                    <p class="verticalMargin-t-0 verticalPadding-t-0 verticalMargin-b-0 verticalPadding-b-0"><?php echo mb_substr(strip_tags($post-> post_content),0,100).'...'; ?></p>
-                    <div class="excerpt gryColor">
+                    <p class="small verticalMargin-t-xs verticalPadding-t-0 verticalMargin-b-0 verticalPadding-b-0"><?php echo mb_substr(strip_tags($post-> post_content),0,100).'...'; ?></p>
+                    <div class="excerpt verticalMargin-t-xs keyColor40pale">
                         <span class="small">
                             <i class="fa fa-clock-o horizontalPadding-r-xs horizontalPadding-l-xs text-subColor" aria-hidden="true"></i><time datetime="<?php echo get_the_date( 'Y-m-j' ) ?>"><?php the_time( get_option( 'date_format' ) ); ?>
                             </time><i class="fa fa-commenting-o horizontalPadding-r-xs horizontalPadding-l-sm text-subColor" aria-hidden="true"></i><?php comments_number( 'なし', 'あり', '%件' ); ?>
@@ -141,7 +149,9 @@ else : ?>
                             <i class="fa fa-folder-o horizontalPadding-r-xs horizontalPadding-l-xs text-subColor" aria-hidden="true"></i><?php the_category( ',' ); ?>
                         </span>
                     </div>
-        <hr class="dividerUnit ">
+
+  </div><!-- /.l-box -->
+</div><!-- /.xs-12 -->
         <?php endforeach; ?>
 
       </section>

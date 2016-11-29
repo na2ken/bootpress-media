@@ -1,9 +1,6 @@
 <?php
-/**
- * Template Name : front-page.php
- * For new-theme
- * Revision : 1.1　
- **/
+/* Template Name: front-page.php */
+/* Last update 1611015 */
 get_header(); ?>
 <!-- front-page template -->
 <div class="l-cover verticalPadding-t-sm verticalPadding-b-sm">

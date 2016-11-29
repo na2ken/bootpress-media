@@ -6,8 +6,8 @@
 * | (__\__ \__ \
 * \___|___/___/
 *
-* V2.0.3 "bp"
-* Date : 2016.11.7 15:09
+* V2.0.29 "bp"
+* Date : 2016.11.5 20:28
 * MEMO : original http://cdn.bootpress.co/assets/css/bps.css + Alpha
 * Code licensed MIT.
 * For details, see http://en.wikipedia.org/wiki/MIT_License
@@ -256,7 +256,7 @@ ul:after {
  .navbar-toggle {
      position: relative;
      float: right;
-     padding: 8px 10px 0 10px;
+     padding: 80px 10px 0 10px;
      margin-top: 0;
      margin-right: 0;
      margin-bottom: 0;
@@ -1024,8 +1024,8 @@ body {
 section {
     background: $wht;
 }
-section:nth-of-type(2n+0) { //  奇数を指定する場合には2n+1
-    background: $gryColor;
+article section:nth-of-type(2n+0) { //  奇数を指定する場合には2n+1
+    background: $wht;
 }
 _section div:nth-child(1) {
   background: $trns;

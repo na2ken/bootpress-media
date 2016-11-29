@@ -35,15 +35,11 @@ get_header(); ?>
 
 
             <div class="verticalMargin-t-sm">
+                <?php remove_filter ('the_content', 'wpautop'); ?>
                 <?php the_content(); ?>
             </div>
-            <p>なるほど！と思ったら、すぐシェア♪</p>
-            <div class="verticalMargin-t-sm">
-                <figure>
-                    <?php echo get_avatar( 1, 32, '', '', array('class'=>'img-circle', 'extra_attr'=>'style="margin: 0 5px 0 0;"') ); ?>
-                </figure>
-                    <p><span class="small"><?php the_author_posts_link(); ?>(<?php the_author_posts(); ?> )</span></p>
-            </div>
+
+
 
             <div class="col-full verticalMargin-t-xs verticalMargin-b-xs">
                 <div class="wrap-col">

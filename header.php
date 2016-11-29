@@ -1,9 +1,9 @@
 <?php
 /**
- * Template Name : header.php
- * For new-theme
- * Revision : 1.1　
- **/
+ * BootPress header.php update160701
+ * add link rel="alternate" & author
+ */
+
 ?>
 <!DOCTYPE html>
 <html lang="ja" id="pageTop">

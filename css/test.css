@@ -1122,21 +1122,21 @@ h3 a:hover {
 }
 
 body {
-  color: #252525;
-  background: #ffffff;
+  color: #21252b;
+  background: #f6f6f6;
 }
 
 .l-footeBelow {
-  background: #ffffff;
+  background: #f6f6f6;
 }
 
 .l-cover {
-  background: #57e7dd;
-  color: #ffffff;
+  background: #fae1e4;
+  color: #f6f6f6;
 }
 
 section {
-  background: #ffffff;
+  background: #f6f6f6;
 }
 
 article section:nth-of-type(2n+0) {
@@ -1152,52 +1152,52 @@ article.archiveArticle {
 }
 
 .l-footerAbove {
-  background: #ffffff;
+  background: #f6f6f6;
 }
 
 .scroll-top .btn {
-  background: rgba(87, 231, 221, 0.9);
+  background: rgba(250, 225, 228, 0.9);
 }
 
 .scroll-top a:link,
 .scroll-top a:visited {
-  color: #ffffff;
+  color: #f6f6f6;
   font-weight: normal;
 }
 
 .scroll-top a:hover {
-  color: #ffffff;
-  background: #b0f4ef;
+  color: #f6f6f6;
+  background: white;
 }
 
 .navListUnit a:link,
 .navListUnit a:visited {
-  color: #1bbdb2;
+  color: #eb8a95;
   font-weight: normal;
 }
 
 .keyColor {
-  background: #57e7dd;
+  background: #fae1e4;
 }
 
 .keyColor40dark {
-  background: #159088;
+  background: #e45e6e;
 }
 
 .keyColor20dark {
-  background: #1bbdb2;
+  background: #eb8a95;
 }
 
 .keyColor20pale {
-  background: #b0f4ef;
+  background: white;
 }
 
 .keyColor40pale {
-  background: #c7f7f4;
+  background: white;
 }
 
 .keyColor60pale {
-  background: #f3fdfd;
+  background: white;
 }
 
 .subColor {
@@ -1273,15 +1273,15 @@ article.archiveArticle {
 }
 
 .keyColor-text {
-  color: #57e7dd;
+  color: #fae1e4;
 }
 
 .keyColor20dark-text {
-  color: #1bbdb2;
+  color: #eb8a95;
 }
 
 .keyColor40dark-text {
-  color: #159088;
+  color: #e45e6e;
 }
 
 .subColor-text {
