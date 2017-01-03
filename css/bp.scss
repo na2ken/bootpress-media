@@ -1,22 +1,15 @@
 @import "_variables";
 @charset "utf-8";
 /*******************************************************************
-*  ___ ___ ___
-* / __/ __/ __|
-* | (__\__ \__ \
-* \___|___/___/
-*
-* V2.0.29 "bp"
-* Date : 2016.11.5 20:28
-* MEMO : original http://cdn.bootpress.co/assets/css/bps.css + Alpha
-* Code licensed MIT.
-* For details, see http://en.wikipedia.org/wiki/MIT_License
-* 2016 Some Rights Reserved , Kenji Natsumoto
+* Name : BootPress media Original basic CSS Ver. 0.5
+* Date : 2017.1.2 20:00
+* Site URL : http://bp-media.iaowd.com/
+* Code licensed MIT. For details, see http://en.wikipedia.org/wiki/MIT_License
+* Author : Kenji Natsumoto
 * Thanks for Jonathan Snook(SMACSS) and many more...
-* StyleGuide: cdn.bootpress.co/bp-pattern-lib/index01.html
 * *****************************************************************/
 /*-----------------------------------------------------
-* INDEX v.1.1
+* INDEX v.1.2
 1.  BASE
 1-1.  General Settings (for HTMLtag Direct)
 1-2.  Web Font
@@ -256,7 +249,7 @@ ul:after {
  .navbar-toggle {
      position: relative;
      float: right;
-     padding: 80px 10px 0 10px;
+     padding: 8px 8px 0 8px; // ToDoing
      margin-top: 0;
      margin-right: 0;
      margin-bottom: 0;
@@ -275,7 +268,7 @@ ul:after {
      border-radius: 0;
  }
  .navbar-toggle .icon-bar + .icon-bar {
-     margin-top: 4px; // bor-between-space
+     margin-top: 4px; // bar-between-space
  }
  @media (min-width: 1025px) {
      .navbar-toggle {
@@ -433,6 +426,68 @@ ul:after {
  }
  /*    3-5.  coverUnit
   * ------------------------------------------------------ */
+
+  /*     2-6.  l-coverfullScreen cover v2.1
+   * ------------------------------------------------------ */
+  .box {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  @media screen and (max-width: 320px) and (max-width: 480px) {
+    .box {
+      width: 320px;
+      height: 480px;
+    }
+  }
+
+  .box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+
+  .box__area .box__bg_photo {
+    background-image: url();
+    background-size: cover;
+    background-position: 50% 0%;
+    background-repeat: no-repeat;
+  }
+
+  .coverUnit-body h1 {
+    background: #e64673, 0.8;
+  }
+
+  .coverUnit-body h2 {
+    background: #e64673, 0.8;
+  }
+
+  .box__bg {
+    background: rgba(230, 70, 115, 0.8);
+  }
+
+  .box__area {
+    height: 100vh;
+    overflow-y: auto;
+    -webkit-scroll-snap-points-y: repeat(100vh);
+    -ms-scroll-snap-points-y: repeat(100vh);
+    scroll-snap-points-y: repeat(100vh);
+    -webkit-scroll-snap-type: mandatory;
+    -ms-scroll-snap-type: mandatory;
+    scroll-snap-type: mandatory;
+  }
  /******** 3-5-1.  coverUnit-head   ****/
  /******** 3-5-2. coverUnit-body    ****/
  /******** 3-5-3. coverUnit-foot    ****/
@@ -1268,6 +1323,8 @@ article.archiveArticle {
 
 @media screen and (min-width: 1025px) {
 .textSize-xxs {
+  margin: 0;
+  padding: 0;
     font-size: 0.6rem;
   }
 }
